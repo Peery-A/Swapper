@@ -37,6 +37,8 @@ IfWinNotActive, % "ahk_id " RuneScape_ID
 WingetPos, RuneScape_X, RuneScape_Y, RuneScape_Width, RuneScape_Height, % "ahk_id " RuneScape_ID
 
 
+;new comment
+
 ;from original
 ;If(RuneScape_Width < 775 || RuneScape_Height-Window_Border*2 < 566)
 ;{
