@@ -67,13 +67,39 @@ Loop, % Item_Numbers0
 {
     Item_X := First_Item_X+Mod(Item_Numbers%A_Index%-1, 4)*66
     Item_Y := First_Item_Y+Div(Item_Numbers%A_Index%-1, 4)*55
-    MouseMove, % Item_X, % Item_Y
+    ;MsgBox, %Item_X%, %Item_Y%
+    
+    Random, rX, -10, 10
+    Random, rY, -10, 10
+
+    RItem_X := Item_X + rX
+    RItem_y := Item_Y + rY
+
+    ;MsgBox, %RItem_X%, %RItem_Y%
+    MouseMove, % RItem_X , % RItem_Y
     RClick()
-	RSleep(50,100)
+	 RSleep(50, 100)
+    
 }
 MouseMove, % Mouse_X, % Mouse_Y
 SetTimer, Locate_Inventory, 0
 Return
+
+RMouseMove()
+{
+   Item_X_Min = Item_X - 10
+   Item_X_Max = Item_X + 10
+   Item_Y_Min = Item_Y - 10
+   Item_Y_Max = Item_Y + 10
+
+   Random, rX, -10, 10
+   Random, rY, -10, 20
+
+   MsgBox, %Item_X%, %Item_Y%
+
+   MouseMove, % rX , % rY 
+}
+
 
 Div(X, Y) {
     Return Floor(X/Y)    
@@ -125,6 +151,6 @@ RClick()
 {
 	Random, r, 10, 50
 	Send {LButton down}
-	Sleep,r
+	Sleep, r
 	Send {LButton up}
 }
